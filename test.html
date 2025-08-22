@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mobile Menu Test</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50">
+
+<header class="bg-white border-b border-gray-200 dark:bg-gray-900 dark:border-gray-700">
+  <div class="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
+    <span class="font-bold">HB</span>
+
+    <!-- Desktop menu -->
+    <nav class="hidden sm:flex gap-6">
+      <a href="#">About</a>
+      <a href="#">Skills</a>
+      <a href="#">Contact</a>
+    </nav>
+
+    <!-- Mobile button -->
+    <button id="menuBtn" class="sm:hidden p-2 border rounded">
+      <span id="menuIcon">☰</span>
+      <span id="closeIcon" class="hidden">✕</span>
+    </button>
+  </div>
+
+  <!-- Mobile dropdown -->
+  <nav id="mobileMenu" class="sm:hidden hidden flex-col gap-2 p-4 bg-gray-100 dark:bg-gray-800">
+    <a href="#">About</a>
+    <a href="#">Skills</a>
+    <a href="#">Contact</a>
+  </nav>
+</header>
+
+<script>
+const menuBtn   = document.getElementById('menuBtn');
+const mobileNav = document.getElementById('mobileMenu');
+const menuIcon  = document.getElementById('menuIcon');
+const closeIcon = document.getElementById('closeIcon');
+
+menuBtn.addEventListener('click', () => {
+  const isHidden = mobileNav.classList.contains('hidden');
+  mobileNav.classList.toggle('hidden');
+  menuIcon.classList.toggle('hidden', !isHidden);
+  closeIcon.classList.toggle('hidden', isHidden);
+});
+</script>
+
+</body>
+</html>
